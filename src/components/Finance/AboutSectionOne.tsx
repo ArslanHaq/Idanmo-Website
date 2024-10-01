@@ -44,7 +44,7 @@ const AboutSectionOne = ({ title, para, left, icon, rotate }: any) => {
                     {icon}
                   </div>
                 </div>
-                <div className="w-full px-4 lg:w-1/2">
+                <div className="w-full flex justify-end lg:w-1/2">
                   <SectionTitle
                     title={title}
                     paragraph={para}
