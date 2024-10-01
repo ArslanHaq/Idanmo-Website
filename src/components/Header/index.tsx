@@ -10,6 +10,7 @@ const Header = () => {
   // Navbar toggle
   const [navbarOpen, setNavbarOpen] = useState(false);
   const navbarToggleHandler = () => {
+    console.log("navbarToggle", navbarOpen);
     setNavbarOpen(!navbarOpen);
   };
 
@@ -31,6 +32,7 @@ const Header = () => {
   const handleSubmenu = (index) => {
     if (openIndex === index) {
       setOpenIndex(-1);
+
     } else {
       setOpenIndex(index);
     }
@@ -108,6 +110,9 @@ const Header = () => {
                               ? "text-primary dark:text-white"
                               : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
                               }`}
+                            onClick={() => {
+                              setNavbarOpen(!navbarOpen)
+                            }}
 
                           >
                             {menuItem.title}

@@ -1,16 +1,17 @@
-import AboutSectionOne from "@/components/About/AboutSectionOne";
-import AboutSectionTwo from "@/components/About/AboutSectionTwo";
+import AboutSectionOne from "@/components/Finance/AboutSectionOne";
+import AboutSectionTwo from "@/components/Finance/AboutSectionTwo";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 
 import { Metadata } from "next";
+import Finance from "@/components/Finance";
 
 export const metadata: Metadata = {
-  title: "About Page | Idanimo Tech",
+  title: "Financing Page | Idanimo Tech",
   description: "This is About Page for Startup Nextjs Template",
   // other metadata
 };
 
-const AboutPage = () => {
+const FinancePage = () => {
   return (
     <>
       <Breadcrumb
@@ -23,8 +24,8 @@ const AboutPage = () => {
         icon={
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="201"
-            height="201"
+            width="250"
+            height="250"
             fill="#437FBE"
             version="1.1"
             viewBox="0 0 512 512"
@@ -46,6 +47,8 @@ const AboutPage = () => {
           xmlns="http://www.w3.org/2000/svg"
           fill="#437FBE"
           stroke="#437FBE"
+          width="350"
+          height="350"
           viewBox="0 0 128 128"
         >
           <g>
@@ -65,16 +68,18 @@ const AboutPage = () => {
       This transfer includes all the physical assets acquired by us for running the project, intellectual property, and operational responsibilities."
         rotate={false}
         icon={
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="350"
+            height="350">
             <g fill="#437FBE" fillRule="evenodd" clipRule="evenodd">
               <path d="M10.007 3.447a.75.75 0 01.046 1.06L5.705 9.25H20a.75.75 0 010 1.5H4a.75.75 0 01-.553-1.257l5.5-6a.75.75 0 011.06-.046zM20.686 13.698A.75.75 0 0020 13.25H4a.75.75 0 000 1.5h14.295l-4.348 4.743a.75.75 0 001.106 1.014l5.5-6a.75.75 0 00.133-.809z"></path>
             </g>
           </svg>
         }
       />
+      <Finance />
 
     </>
   );
 };
 
-export default AboutPage;
+export default FinancePage;

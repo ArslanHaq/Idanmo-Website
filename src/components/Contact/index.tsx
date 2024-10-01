@@ -1,44 +1,25 @@
 "use client"
 import { useState } from "react";
 import NewsLatterBox from "./NewsLatterBox";
-
-const emailUrl = 'http://192.168.100.123:5015/Email'
+import { sendEmail } from "@/server/email";
 const Contact = () => {
 
   const [formValues, setFormValues] = useState({
     name: '',
-    email: '',
+    from: '',
     subject: '',
-    message: ''
+    body: ''
   })
   const handleFormSubmit = async (e: any) => {
     e.preventDefault();
+    await sendEmail(formValues)
+    setFormValues({
+      name: '',
+      from: '',
+      body: '',
+      subject: ''
+    })
 
-    console.log(formValues); // Log the form values to verify
-
-    try {
-      const response = await fetch(emailUrl, {
-        method: 'POST', // Set the request method to POST
-        headers: {
-          'Content-Type': 'application/json', // Specify that you're sending JSON
-        },
-        body: JSON.stringify(formValues), // Convert formValues to a JSON string
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
-      console.log('Email sent successfully');
-      setFormValues({
-        email: '',
-        message: '',
-        name: "",
-        subject: ''
-      })
-    } catch (error) {
-      console.error('Error sending email:', error);
-    }
   };
   return (
     <section id="contact" className="overflow-hidden py-16 md:py-20 lg:py-28">
@@ -91,11 +72,11 @@ const Contact = () => {
                       </label>
                       <input
                         type="email"
-                        value={formValues.email}
+                        value={formValues.from}
                         onChange={(e) => {
                           setFormValues({
                             ...formValues,
-                            email: e.target.value,
+                            from: e.target.value,
                           });
                         }}
                         required
@@ -139,11 +120,11 @@ const Contact = () => {
                         name="message"
                         rows={5}
                         placeholder="Enter your Message"
-                        value={formValues.message}
+                        value={formValues.body}
                         onChange={(e) => {
                           setFormValues({
                             ...formValues,
-                            message: e.target.value,
+                            body: e.target.value,
                           });
                         }}
                         required

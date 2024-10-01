@@ -10,7 +10,7 @@ const menuData: Menu[] = [
   {
     id: 2,
     title: "Financing",
-    path: "/about",
+    path: "/financing",
     newTab: false,
   },
   // {
@@ -21,10 +21,28 @@ const menuData: Menu[] = [
   // },
   {
     id: 3,
+    title: "Solutions",
+    path: "/solutions",
+    newTab: false,
+  },
+  {
+    id: 4,
+    title: "Services",
+    path: "/services",
+    newTab: false,
+  }, {
+    id: 5,
+    title: "Brochure",
+    path: "/brochure",
+    newTab: false,
+  },
+  {
+    id: 6,
     title: "Support",
     path: "/contact",
     newTab: false,
   },
+
   // {
   //   id: 4,
   //   title: "Pages",

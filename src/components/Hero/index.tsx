@@ -9,9 +9,9 @@ const Hero = () => {
         className="relative z-10 overflow-hidden bg-white pb-16 pt-[140px] dark:bg-gray-dark md:pb-[120px] md:pt-[170px] xl:pb-[160px] xl:pt-[200px] 2xl:pb-[210px] 2xl:pt-[230px]"
       >
         <div className="container">
-          <div className="-mx-16 flex flex-wrap">
-            <div className="w-full flex flex-wrap justify-between items-center ">
-              <div className=" max-w-[800px] ">
+          <div className=" flex flex-wrap">
+            <div className="w-full flex flex-wrap lg:justify-end items-center  ">
+              <div className=" w-1/2">
                 {/* <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
                   Free and Open-Source Next.js Template for Startup & SaaS
                 </h1> */}
@@ -35,13 +35,15 @@ const Hero = () => {
                   </Link>
                 </div> */}
               </div>
-              <Image
-                src="/images/hero/hero1.png"
-                alt="logo"
-                width={400}
-                height={30}
-                className="slide-in-right"
-              />
+              <div className="w-1/2  flex justify-end">
+                <Image
+                  src="/images/hero/hero1.png"
+                  alt="logo"
+                  width={400}
+                  height={30}
+                  className="slide-in-right"
+                />
+              </div>
             </div>
           </div>
         </div>

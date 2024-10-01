@@ -22,29 +22,30 @@ const AboutSectionOne = ({ title, para, left, icon, rotate }: any) => {
       <div className="container">
         <div className=" pb-16  md:pb-20 lg:pb-28">
           {
-            !left ? (<div className="-mx-4 flex flex-wrap items-center">
-              <div className="w-full px-4 lg:w-1/2">
-                <SectionTitle
-                  title={title}
-                  paragraph={para}
-                  mb="44px"
-                />
+            !left ? (
+              <div className=" flex flex-wrap items-center ">
+                <div className="w-full  lg:w-1/2">
+                  <SectionTitle
+                    title={title}
+                    paragraph={para}
+                    mb="44px"
+                  />
 
-              </div>
-
-              <div className="w-full px-4 lg:w-1/2">
-                <div className={`relative mx-auto ${rotate && 'rotate-12'}  max-w-[300px] lg:mr-0`}>
-                  {icon}
                 </div>
-              </div>
-            </div>) : (
-              <div className="-mx-4 flex flex-wrap items-center">
-                <div className="w-full px-4 lg:w-1/2">
-                  <div className="relative mx-auto aspect-[25/24] max-w-[300px] lg:ml-0">
+
+                <div className="w-full flex justify-center md:justify-end md:pe-10  lg:w-1/2">
+                  <div className={`relative ${rotate && 'rotate-12'}  lg:mr-0`}>
                     {icon}
                   </div>
                 </div>
+              </div>) : (
+              <div className=" flex flex-wrap items-center">
                 <div className="w-full px-4 lg:w-1/2">
+                  <div className="relative  lg:ml-0">
+                    {icon}
+                  </div>
+                </div>
+                <div className="w-full flex justify-end lg:w-1/2">
                   <SectionTitle
                     title={title}
                     paragraph={para}
