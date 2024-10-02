@@ -1,4 +1,5 @@
-import Image from "next/image";
+'use client'
+import { useEffect, useState } from "react";
 import SectionTitle from "../Common/SectionTitle";
 
 const checkIcon = (
@@ -8,6 +9,7 @@ const checkIcon = (
 );
 
 const AboutSectionOne = ({ title, para, left, icon, rotate }: any) => {
+  const [isMobileView, setIsMobileView] = useState(false)
   const List = ({ text }) => (
     <p className="mb-5 flex items-center text-lg font-medium text-body-color">
       <span className="mr-4 flex h-[30px] w-[30px] items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary">
@@ -16,6 +18,29 @@ const AboutSectionOne = ({ title, para, left, icon, rotate }: any) => {
       {text}
     </p>
   );
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        // Set larger size for md screens and up
+        setIsMobileView(false);
+      } else {
+        // Default size for small screens
+        setIsMobileView(true);
+      }
+    };
+
+    // Initial check
+    handleResize();
+
+    // Add event listener to handle window resize
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <section id="about" className="pt-16 md:pt-20 lg:pt-28">
@@ -39,22 +64,36 @@ const AboutSectionOne = ({ title, para, left, icon, rotate }: any) => {
                   </div>
                 </div>
               </div>) : (
-              <div className=" flex flex-wrap items-center">
-                <div className="w-full px-4 lg:w-1/2">
-                  <div className="relative  lg:ml-0">
-                    {icon}
+              !isMobileView ?
+                <div className=" flex flex-wrap items-center">
+                  <div className="w-full  lg:w-1/2">
+                    <div className="relative  lg:ml-0">
+                      {icon}
+                    </div>
+                  </div>
+                  <div className="w-full flex justify-end lg:w-1/2">
+                    <SectionTitle
+                      title={title}
+                      paragraph={para}
+                      mb="44px"
+                    />
+                  </div>
+                </div> : <div className=" flex flex-wrap items-center">
+
+                  <div className="w-full flex justify-end lg:w-1/2">
+                    <SectionTitle
+                      title={title}
+                      paragraph={para}
+                      mb="44px"
+                    />
+                  </div>
+                  <div className="w-full  lg:w-1/2">
+                    <div className="relative  lg:ml-0">
+                      {icon}
+                    </div>
                   </div>
                 </div>
-                <div className="w-full flex justify-end lg:w-1/2">
-                  <SectionTitle
-                    title={title}
-                    paragraph={para}
-                    mb="44px"
-                  />
-                </div>
 
-
-              </div>
             )
           }
 
